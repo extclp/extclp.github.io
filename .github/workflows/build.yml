@@ -27,4 +27,4 @@ jobs:
           BRANCH: gh-pages
           FOLDER: dist
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MESSAGE: "build: ({sha}) {msg}"
+          MESSAGE: "build: {sha}"
