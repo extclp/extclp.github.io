@@ -1,5 +1,5 @@
 <template>
-    <div class="sound-effect" :style="{ cursor: loading ? 'wait' : 'none' }">
+    <div class="sound-effect" :style="{ cursor: loading ? 'wait' : 'unset' }">
         <div>
             <div>
                 <input name="snapshot" type="checkbox" v-model="snapshot">
