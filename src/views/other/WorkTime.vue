@@ -16,6 +16,7 @@ const value = ref(0);
 const options = [
     { text: "白班", value: 0 },
     { text: "夜班", value: 1 },
+    { text: "休息", value: 2 }
 ]
 
 const show = ref(false)
@@ -30,10 +31,13 @@ const now = new Date().getTime();
 
 const formatter = (day: CalendarDayItem) => {
     var dayjs = Math.ceil((day.date!.getTime() - now) / 86400000);
-    if ((dayjs + value.value) % 2 === 0) {
+    const i = (dayjs + value.value) % 3
+    if(i == 0) {
         day.bottomInfo = "白班"
-    } else {
+    } else if(i == 1) {
         day.bottomInfo = "夜班"
+    } else {
+        day.bottomInfo = "休息"
     }
     return day;
 }
@@ -43,6 +47,7 @@ const formatter = (day: CalendarDayItem) => {
     padding-top: 4rem;
     background: var(--van-gray-1);
 }
+
 .work-time .van-field {
     margin-bottom: 2rem
 }
